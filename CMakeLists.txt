@@ -17,6 +17,9 @@ rosidl_generate_interfaces(${PROJECT_NAME}
     "srv/PosesToVectors.srv"
     "srv/AgentStateToCircForce.srv"
     "srv/AgentPoseToMinObstacleDist.srv"
+    # "msg/Pointcloud.msg"
+    "msg/Pointcloud1M.msg"
+    "msg/Pointcloud100.msg"
   DEPENDENCIES geometry_msgs std_msgs # Add packages that above messages depend on, in this case geometry_msgs for Sphere.msg
 )
 
