@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.18)
 project(percept_interfaces)
 
-# find dependencies
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
@@ -12,15 +11,15 @@ find_package(ament_cmake REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
-# To generate messages and services
 rosidl_generate_interfaces(${PROJECT_NAME}
-    "srv/PosesToVectors.srv"
+  # services
     "srv/AgentStateToCircForce.srv"
     "srv/AgentPoseToMinObstacleDist.srv"
-    # "msg/Pointcloud.msg"
+    "srv/SetGoal.srv"
+  # messages
     "msg/Pointcloud1M.msg"
     "msg/Pointcloud100.msg"
-  DEPENDENCIES geometry_msgs std_msgs # Add packages that above messages depend on, in this case geometry_msgs for Sphere.msg
+  DEPENDENCIES geometry_msgs std_msgs
 )
 
 ament_package()
